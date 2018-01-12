@@ -139,7 +139,7 @@ class Poi(hm: HashMap[String, String]) extends AbstractModel {
         val sb = new StringBuilder()
         var json: JsonObject = null
         try {
-            json = JsonObject.empty()
+            json = toValidCouchJson()
             json.put("geometry", new GeoJSONPoint(java.lang.Double.parseDouble(fields.get("coordinates_lat")),
                 java.lang.Double.parseDouble(fields.get("coordinates_lon")))
               .toGeoJSON())
